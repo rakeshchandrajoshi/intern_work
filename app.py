@@ -1,7 +1,9 @@
+# File: Home.py
 import streamlit as st
 from scraper import scrape_with_firecrawl
 from llm_parser import extract_products_with_llm
 import time
+import json
 
 # Configure Streamlit page
 st.set_page_config(
@@ -51,17 +53,16 @@ Enter a URL from the approved list below to get clean product data.
 """)
 
 groq_key = "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"
-# Sidebar for Groq API key
-with st.sidebar:
 
-    st.markdown("Approved Websites")
+# Sidebar for Groq API key and website list
+with st.sidebar:
+    st.markdown("### Approved Websites")
     st.markdown("""
     - [Blue Lettuce](https://www.bluelettuce.in/our-products/)
     - [Only Hydroponics](https://onlyhydroponics.in/collections/herbs)
     - [Dhakad Hydroponic](https://www.dhakadhydroponic.com/shop/Seeds?cid=3702493)
     - [Jags Fresh](https://www.jagsfresh.com/subcategory/vegetables/hydroponics)
     """)
-
 
 # Main content area
 url = st.text_input(
@@ -84,19 +85,14 @@ if st.button("Extract Product Data"):
     status_text = st.empty()
 
     try:
-        # Step 1: Scrape the URL
         status_text.text("Scraping website content...")
         progress_bar.progress(25)
-
         scraped_content = scrape_with_firecrawl(url)
 
-        # Step 2: Parse with LLM
         status_text.text("Extracting product data with AI...")
         progress_bar.progress(60)
-
         products = extract_products_with_llm(scraped_content, groq_key)
 
-        # Step 3: Display results
         status_text.text("Formatting results...")
         progress_bar.progress(90)
 
@@ -106,11 +102,18 @@ if st.button("Extract Product Data"):
             st.success(f"Found {len(products)} products!")
             st.markdown("### Extracted Product Data")
 
-            # Display products in cards
-
             # Show raw JSON
             with st.expander("View raw JSON data"):
                 st.json(products)
+
+            # Download JSON
+            json_str = json.dumps(products, indent=2)
+            st.download_button(
+                label="📅 Download JSON",
+                data=json_str,
+                file_name="products_data.json",
+                mime="application/json"
+            )
 
         progress_bar.progress(100)
         status_text.text("Done!")
@@ -122,3 +125,55 @@ if st.button("Extract Product Data"):
         st.error(f"An error occurred: {str(e)}")
         progress_bar.empty()
         status_text.empty()
+
+# File: About.py
+import streamlit as st
+st.set_page_config(page_title="About", page_icon="ℹ️")
+st.title("ℹ️ About")
+st.markdown("""
+This tool uses AI to extract structured product data from hydroponic farming websites.
+It combines intelligent scraping with large language models (LLMs) to simplify data access.
+
+**Tech stack:**
+- 🔍 Firecrawl for scraping
+- 🤖 LLM for data parsing (Groq API)
+- 🖥️ Streamlit for UI
+""")
+
+# File: Development.py
+import streamlit as st
+st.set_page_config(page_title="Development", page_icon="🛠️")
+st.title("🛠️ Development")
+st.markdown("""
+**Development Process:**
+
+1. **Web Scraping**: Using Firecrawl to scrape HTML/text.
+2. **Data Extraction**: LLM parses the scraped content to extract clean product names and prices.
+3. **Frontend**: Built using Streamlit with custom CSS for card layouts and feedback.
+
+**Planned Features:**
+- 🌾 Crop-wise filtering
+- 📦 CSV/Excel downloads
+- 📊 Price trend visualization
+- 🌐 Multi-language support for Indian farmers
+""")
+
+# File: Team.py
+import streamlit as st
+st.set_page_config(page_title="Team", page_icon="👥")
+st.title("👥 Our Team")
+st.markdown("""
+Meet the team behind the Crop and Product Price Scraper:
+
+- 🔬 Dr. ABC – Lead AI Researcher
+- 🤖 Jane Doe – Backend & AI Integration
+- 🌈 John Smith – UI/UX Designer & Frontend
+""")
+
+# .streamlit/config.toml (create this file manually)
+# [theme]
+# primaryColor="#4CAF50"
+# backgroundColor="#ffffff"
+# secondaryBackgroundColor="#f0f2f6"
+# textColor="#262730"
+# font="sans serif"
