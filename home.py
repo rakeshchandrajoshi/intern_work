@@ -119,3 +119,50 @@ if st.button("Extract Product Data"):
         st.error(f"An error occurred: {str(e)}")
         progress_bar.empty()
         status_text.empty()
+# ===============================
+# PAGE 2: ABOUT
+# ===============================
+elif page == "About":
+    st.title("ℹ️ About This Tool")
+    st.markdown("""
+    This application scrapes hydroponic farming websites and extracts structured product data using AI.
+
+    **Features:**
+    - 🔍 Simulated scraping
+    - 🤖 Simulated LLM-based product parsing
+    - 📥 JSON export support
+    - 💻 Simple UI with Streamlit
+
+    This is a demo version without external dependencies like `scraper.py` or `llm_parser.py`.
+    """)
+
+# ===============================
+# PAGE 3: DEVELOPMENT
+# ===============================
+elif page == "Development":
+    st.title("🛠️ Development Details")
+    st.markdown("""
+    ### Workflow:
+    1. URL entered by user (from pre-approved list)
+    2. Simulated scraping function generates dummy content
+    3. Simulated AI extracts mock product name, price, unit
+    4. Products displayed in card layout
+    5. JSON can be viewed or downloaded
+
+    ### Next Steps:
+    - 🔗 Integrate real scraper (e.g., Firecrawl or BeautifulSoup)
+    - 🤖 Replace simulated AI with real LLM API (Groq, OpenAI, etc.)
+    - 🧪 Add testing for new URLs
+    """)
+
+# ===============================
+# PAGE 4: TEAM
+# ===============================
+elif page == "Team":
+    st.title("👥 Project Team")
+    st.markdown("""
+    - 👨‍🔬 **Dr. A. I. Lead** – Project Investigator  
+    - 🧑‍💻 **Dev Patel** – Backend Developer  
+    - 🎨 **Meera Design** – UI/UX & Frontend  
+    - 🧠 **GPT LLM** – AI Assistant  
+    """)
