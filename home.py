@@ -57,48 +57,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-
-
-# st.set_page_config(
-#     page_title="Crop and Product Price Scraper",
-#     page_icon="🌱",
-#     layout="centered"
-# )
-
-# # Custom CSS styling
-# st.markdown("""
-#     <style>
-#         .stTextInput input {
-#             height: 3rem;
-#             font-size: 1rem;
-#         }
-#         .stButton button {
-#             background-color: #4CAF50;
-#             color: white;
-#             height: 3rem;
-#             width: 100%;
-#             font-size: 1rem;
-#         }
-#         .product-card {
-#             border: 1px solid #ddd;
-#             border-radius: 8px;
-#             padding: 15px;
-#             margin: 10px 0;
-#             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-#         }
-#         .product-name {
-#             font-weight: bold;
-#             font-size: 1.2rem;
-#             color: #2e7d32;
-#         }
-#         .product-price {
-#             color: #d32f2f;
-#             font-size: 1.1rem;
-#         }
-#     </style>
-# """, unsafe_allow_html=True)
-
-
 # ===============================
 # PAGE 1: HOME
 # ===============================
