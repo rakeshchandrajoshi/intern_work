@@ -179,41 +179,57 @@ if page == "Home":
             st.error(f"An error occurred: {str(e)}")
             progress_bar.empty()
             status_text.empty()
+
 # ===============================
 # PAGE 2: ABOUT
 # ===============================
 elif page == "About":
     st.title("ℹ️ About This Tool")
     st.markdown("""
-    This application scrapes hydroponic farming websites and extracts structured product data using AI.
+    The **Crop and Product Price Scraper** is an AI-powered tool designed to extract structured product pricing data from hydroponic farming websites.
 
-    **Features:**
-    - 🔍 Simulated scraping
-    - 🤖 Simulated LLM-based product parsing
-    - 📥 JSON export support
-    - 💻 Simple UI with Streamlit
+    It uses:
+    - 🔥 A real-time web scraper powered by **Firecrawl** (or your custom scraping logic)
+    - 🤖 A powerful **Large Language Model (LLM)** via the **Groq API** to intelligently extract structured product details like names, prices, and units
 
-    This is a demo version without external dependencies like `scraper.py` or `llm_parser.py`.
+    This helps farmers, agritech developers, and researchers:
+    - Track pricing across multiple platforms
+    - Automate data collection from online hydroponic product listings
+    - Build comparative dashboards or market trend analysis
+
+    ---
+    Developed using **Python + Streamlit**, this tool offers a clean UI, AI automation, and JSON export functionality.
     """)
 
-# ===============================
-# PAGE 3: DEVELOPMENT
-# ===============================
+
 elif page == "Development":
     st.title("🛠️ Development Details")
     st.markdown("""
-    ### Workflow:
-    1. URL entered by user (from pre-approved list)
-    2. Simulated scraping function generates dummy content
-    3. Simulated AI extracts mock product name, price, unit
-    4. Products displayed in card layout
-    5. JSON can be viewed or downloaded
+    This tool combines **web scraping** and **AI-powered parsing** to convert unstructured crop product listings into structured JSON output.
 
-    ### Next Steps:
-    - 🔗 Integrate real scraper (e.g., Firecrawl or BeautifulSoup)
-    - 🤖 Replace simulated AI with real LLM API (Groq, OpenAI, etc.)
-    - 🧪 Add testing for new URLs
+    ### ⚙️ Tech Stack:
+    - **Frontend/UI**: [Streamlit](https://streamlit.io)
+    - **Web Scraper**: Custom implementation using Firecrawl / requests + BeautifulSoup
+    - **AI Parser**: Real-time LLM API (e.g., Groq) to extract product information
+
+    ### 🧠 Workflow:
+    1. 🔗 User enters a product page URL from an approved list
+    2. 🔍 Scraper fetches the HTML content of the page
+    3. 🤖 LLM processes raw text and identifies:
+        - Product names  
+        - Prices  
+        - Units / quantities  
+    4. 🖼️ Extracted items are presented as styled cards
+    5. 📦 Users can download the structured data in JSON format
+
+    ### 🚀 Future Enhancements:
+    - Integrate more e-commerce sites and crops
+    - Add optional CSV export
+    - Implement semantic search/filter for product names
+    - Mobile and multilingual support
     """)
+
+
 
 # ===============================
 # PAGE 4: TEAM
@@ -221,8 +237,8 @@ elif page == "Development":
 elif page == "Team":
     st.title("👥 Project Team")
     st.markdown("""
-    - 👨‍🔬 **Dr. A. I. Lead** – Project Investigator  
-    - 🧑‍💻 **Dev Patel** – Backend Developer  
-    - 🎨 **Meera Design** – UI/UX & Frontend  
-    - 🧠 **GPT LLM** – AI Assistant  
+    - 👨‍🔬 **Ms. Suzain Rashid Lead** – Project Investigator  
+    - 🧑‍💻 **Ms. Suzain Rashid ** – Backend Developer  
+    - 🎨 **Ms. Suzain Rashid ** – UI/UX & Frontend  
+    - 🧠 **Groq LLM** – AI Assistant  
     """)
