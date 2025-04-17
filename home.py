@@ -238,7 +238,7 @@ elif page == "Team":
     st.title("👥 Project Team")
     st.markdown("""
     - 👨‍🔬 **Ms. Suzain Rashid Lead** – Project Investigator  
-    - 🧑‍💻 **Ms. Suzain Rashid ** – Backend Developer  
-    - 🎨 **Ms. Suzain Rashid ** – UI/UX & Frontend  
+    - 🧑‍💻 **Ms. Suzain Rashid** – Backend Developer  
+    - 🎨 **Ms. Suzain Rashid** – UI/UX & Frontend  
     - 🧠 **Groq LLM** – AI Assistant  
     """)
