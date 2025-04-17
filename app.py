@@ -159,15 +159,15 @@ st.markdown("""
 """)
 
 # File: Team.py
-import streamlit as st
-st.set_page_config(page_title="Team", page_icon="👥")
-st.title("👥 Our Team")
-st.markdown("""
-Meet the team behind the Crop and Product Price Scraper:
+# import streamlit as st
+# st.set_page_config(page_title="Team", page_icon="👥")
+# st.title("👥 Our Team")
+# st.markdown("""
+# Meet the team behind the Crop and Product Price Scraper:
 
-- 🔬 Dr. ABC – Lead AI Researcher
-- 🤖 Jane Doe – Backend & AI Integration
-- 🌈 John Smith – UI/UX Designer & Frontend
+# - 🔬 Dr. ABC – Lead AI Researcher
+# - 🤖 Jane Doe – Backend & AI Integration
+# - 🌈 John Smith – UI/UX Designer & Frontend
 """)
 
 # .streamlit/config.toml (create this file manually)
